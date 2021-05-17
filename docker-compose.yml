@@ -1,0 +1,65 @@
+version: "3"
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  bannersrotation:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    depends_on:
+      - zookeeper
+      - kafka
+      - postgres
+    ports:
+      - "14545:14545"
+    expose:
+      - 14545
+    environment:
+      REG_SERVICE_DB_DSN: "postgres://test:test@postgres:5432/brotation?sslmode=disable"
+      REG_SERVICE_BROKER: "localhost:9092"
+      REG_SERVICE_TOPIC: "banners_rotation_statistic"
+    restart: on-failure
+    networks:
+      - app
+
+  postgres:
+    image: postgres:13.3
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: brotation
+    restart: always
+    volumes:
+      # https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh#L145
+      - ./migrations/20210509161527_init.sql:/docker-entrypoint-initdb.d/20210509161527_init.sql
+    networks:
+      - app
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - app
+
+  kafka:
+    image: wurstmeister/kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_HOST_NAME: broker
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CREATE_TOPICS: banners_rotation_statistic:1:1 # topic banners_rotation_statistic will have 1 partition and 1 replica
+    networks:
+      - app

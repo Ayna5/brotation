@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package banners.rotation;
+option go_package = "pkg/banners-rotation;banners_rotation_pb";
+
+import "google/api/annotations.proto";
+
+service BannersRotation {
+  rpc AddBannerToSlot (AddBannerToSlotRequest) returns (AddBannerToSlotResponse) {
+  }
+
+  rpc RemoveBannerFromSlot (RemoveBannerFromSlotRequest) returns (RemoveBannerFromSlotResponse) {
+  }
+
+  rpc AddClickForBanner (AddClickForBannerRequest) returns (AddClickForBannerResponse) {
+  }
+
+  rpc GetBannerForSlot (GetBannerForSlotRequest) returns (GetBannerForSlotResponse) {
+  }
+}
+
+message AddBannerToSlotRequest {
+  uint64 banner_id = 1;
+  uint64 slot_id   = 2;
+}
+
+message AddBannerToSlotResponse {
+}
+
+message RemoveBannerFromSlotRequest {
+  uint64 banner_id = 1;
+  uint64 slot_id   = 2;
+}
+
+message RemoveBannerFromSlotResponse {
+}
+
+message AddClickForBannerRequest {
+  uint64 banner_id = 1;
+  uint64 slot_id   = 2;
+  uint64 user_group_id = 3;
+}
+
+message AddClickForBannerResponse {
+}
+
+message GetBannerForSlotRequest {
+  uint64 slot_id   = 1;
+  uint64 user_group_id = 2;
+}
+
+message GetBannerForSlotResponse {
+  uint64 banner_id = 1;
+}

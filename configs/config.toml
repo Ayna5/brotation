@@ -1,0 +1,14 @@
+[logger]
+level = "INFO"
+path = "./logrus.log"
+
+[server]
+port = "localhost:14545"
+
+[db]
+dsn = "host=localhost port=5432 user=test password=test dbname=brotation sslmode=disable"
+
+[kafka]
+broker = "localhost:9092"
+topic = "banners_rotation_statistic"
+time = 10
