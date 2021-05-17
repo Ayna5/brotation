@@ -29,6 +29,9 @@ func (s *Storage) BannersClickStatisticsFilterByDate(ctx context.Context, from i
 		}
 		clicks = append(clicks, click)
 	}
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("scan error %w", err)
+	}
 
 	return clicks, nil
 }

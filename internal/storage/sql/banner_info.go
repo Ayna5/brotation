@@ -37,8 +37,11 @@ func (s *Storage) bannerInfo(ctx context.Context, slotID, userGroupID uint64) ([
 		information = append(information, info)
 	}
 
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("scan error %w", err)
+	}
 	if len(information) == 0 {
-		return nil, errors.New("banner not found")
+		return nil, errors.New("banner not found") //nolint:errcheck
 	}
 
 	return information, nil

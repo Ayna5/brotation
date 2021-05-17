@@ -35,7 +35,7 @@ func main() {
 
 	lvl, err := logrus.ParseLevel(config.Logger.Level)
 	if err != nil {
-		log.Fatalf("cannot parse level: %w", err)
+		log.Fatalf("cannot parse level: %v", err)
 	}
 	logg, err := logger.New(lvl, config.Logger.Path)
 	if err != nil {

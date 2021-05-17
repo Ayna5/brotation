@@ -37,7 +37,7 @@ func TestApp_AddBannerToSlot(t *testing.T) {
 			name:     "test should error",
 			bannerID: 1,
 			slotID:   0,
-			err:      errors.New("cannot add banner to slot"),
+			err:      errors.New("cannot add banner to slot"), //nolint:errcheck
 		},
 	}
 	for _, tt := range tests {
@@ -78,7 +78,7 @@ func TestApp_AddClickForBanner(t *testing.T) {
 			bannerID:    1,
 			slotID:      0,
 			userGroupID: 1,
-			err:         errors.New("cannot click for banner"),
+			err:         errors.New("cannot click for banner"), //nolint:errcheck
 		},
 	}
 	for _, tt := range tests {
@@ -119,7 +119,7 @@ func TestApp_GetBannerForSlot(t *testing.T) {
 			slotID:      0,
 			userGroupID: 1,
 			result:      0,
-			err:         errors.New("cannot get banner for slot"),
+			err:         errors.New("cannot get banner for slot"), //nolint:errcheck
 		},
 	}
 	for _, tt := range tests {
@@ -158,7 +158,7 @@ func TestApp_RemoveBannerFromSlot(t *testing.T) {
 			name:     "test should error",
 			bannerID: 1,
 			slotID:   0,
-			err:      errors.New("cannot remove banner from slot"),
+			err:      errors.New("cannot remove banner from slot"), //nolint:errcheck
 		},
 	}
 	for _, tt := range tests {

@@ -12,7 +12,7 @@ func (s *Storage) AddBannerToSlot(ctx context.Context, bannerID, slotID uint64) 
 	if err != nil {
 		return fmt.Errorf("cannot starts transaction: %w", err)
 	}
-	defer tx.Rollback()
+	defer tx.Rollback() //nolint:errcheck
 
 	_, err = tx.ExecContext(ctx, "INSERT INTO banner_slot (banner_id, slot_id) VALUES ($1, $2)", bannerID, slotID)
 	if err != nil {
@@ -32,6 +32,9 @@ func (s *Storage) AddBannerToSlot(ctx context.Context, bannerID, slotID uint64) 
 			return fmt.Errorf("cannot execute scan: %w", err)
 		}
 		groups = append(groups, group)
+	}
+	if err = rows.Err(); err != nil {
+		return fmt.Errorf("scan error %w", err)
 	}
 
 	for _, group := range groups {
