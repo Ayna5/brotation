@@ -43,7 +43,8 @@ func TestStorage(t *testing.T) {
 		err := store.AddBannerToSlot(ctx, bannerID, slotID)
 		require.NoError(t, err)
 
-		cc := getBannerSlotFromBannerSlotTable(t, db, bannerID, slotID)
+		cc, err := getBannerSlotFromBannerSlotTable(t, db, bannerID, slotID)
+		require.NoError(t, err)
 		require.NotEqual(t, 0, cc)
 	})
 
@@ -54,7 +55,8 @@ func TestStorage(t *testing.T) {
 		err := store.AddClickForBanner(ctx, bannerID, slotID, userGroupID)
 		require.NoError(t, err)
 
-		cc := getBannerClickFromBannerClickTable(t, db, bannerID, slotID, userGroupID)
+		cc, err := getBannerClickFromBannerClickTable(t, db, bannerID, slotID, userGroupID)
+		require.NoError(t, err)
 		require.NotEqual(t, 0, cc)
 	})
 
@@ -68,7 +70,8 @@ func TestStorage(t *testing.T) {
 		err = store.RemoveBannerFromSlot(ctx, bannerID, slotID)
 		require.NoError(t, err)
 
-		cc := getBannerSlotFromBannerSlotTable(t, db, bannerID, slotID)
+		cc, err := getBannerSlotFromBannerSlotTable(t, db, bannerID, slotID)
+		require.NoError(t, err)
 		require.Equal(t, 0, cc)
 	})
 

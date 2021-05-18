@@ -36,8 +36,8 @@ message RemoveBannerFromSlotResponse {
 }
 
 message AddClickForBannerRequest {
-  uint64 banner_id = 1;
-  uint64 slot_id   = 2;
+  uint64 banner_id     = 1;
+  uint64 slot_id       = 2;
   uint64 user_group_id = 3;
 }
 
@@ -45,7 +45,7 @@ message AddClickForBannerResponse {
 }
 
 message GetBannerForSlotRequest {
-  uint64 slot_id   = 1;
+  uint64 slot_id       = 1;
   uint64 user_group_id = 2;
 }
 

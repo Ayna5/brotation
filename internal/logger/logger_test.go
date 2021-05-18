@@ -10,14 +10,14 @@ import (
 func TestNew(t *testing.T) {
 	tests := []struct {
 		name    string
-		level logrus.Level
-		path  string
+		level   logrus.Level
+		path    string
 		wantErr bool
 	}{
 		{
-			name: "test for logger should ok",
-			level: logrus.InfoLevel,
-			path: "./logrus.log",
+			name:    "test for logger should ok",
+			level:   logrus.InfoLevel,
+			path:    "./logrus.log",
 			wantErr: false,
 		},
 	}

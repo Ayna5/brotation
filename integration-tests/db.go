@@ -2,6 +2,7 @@ package test
 
 import (
 	"database/sql"
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -16,7 +17,7 @@ func NewDB(dsn string) *sql.DB {
 	return db
 }
 
-func getBannerSlotFromBannerSlotTable(t *testing.T, db *sql.DB, bannerID, slotID uint64) int {
+func getBannerSlotFromBannerSlotTable(t *testing.T, db *sql.DB, bannerID, slotID uint64) (int, error) {
 	t.Helper()
 
 	var count int
@@ -27,10 +28,13 @@ func getBannerSlotFromBannerSlotTable(t *testing.T, db *sql.DB, bannerID, slotID
 	for rows.Next() {
 		count++
 	}
-	return count
+	if err = rows.Err(); err != nil {
+		return 0, fmt.Errorf("scan error %w", err)
+	}
+	return count, nil
 }
 
-func getBannerClickFromBannerClickTable(t *testing.T, db *sql.DB, bannerID, slotID, userGroupID uint64) int {
+func getBannerClickFromBannerClickTable(t *testing.T, db *sql.DB, bannerID, slotID, userGroupID uint64) (int, error) {
 	t.Helper()
 
 	var count int
@@ -41,7 +45,10 @@ func getBannerClickFromBannerClickTable(t *testing.T, db *sql.DB, bannerID, slot
 	for rows.Next() {
 		count++
 	}
-	return count
+	if err = rows.Err(); err != nil {
+		return 0, fmt.Errorf("scan error %w", err)
+	}
+	return count, nil
 }
 
 func truncate(t *testing.T, db *sql.DB) {

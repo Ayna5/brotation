@@ -16,4 +16,3 @@ func (s *Storage) addViewForBanner(ctx context.Context, bannerID, slotID, social
 	}
 	return nil
 }
-

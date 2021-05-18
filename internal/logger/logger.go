@@ -8,7 +8,7 @@ import (
 )
 
 func New(level logrus.Level, path string) (*logrus.Logger, error) {
-	f, err := os.OpenFile(path, os.O_APPEND | os.O_CREATE | os.O_RDWR, 0666)
+	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_RDWR, 0666)
 	if err != nil {
 		fmt.Printf("cannot open file: %v", err)
 	}

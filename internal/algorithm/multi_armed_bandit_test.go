@@ -12,22 +12,22 @@ func TestRunBanditAlgorithm(t *testing.T) {
 	}{
 		{
 			name:      "test bandit should ok",
-			counts:    []int64{3,9,5},
-			winnings:  []int64{1,2,1},
+			counts:    []int64{3, 9, 5},
+			winnings:  []int64{1, 2, 1},
 			wantIndex: 0,
 			wantErr:   false,
 		},
 		{
 			name:      "test bandit should err when len(counts) < len(winnings)",
-			counts:    []int64{3,9},
-			winnings:  []int64{1,2,1},
+			counts:    []int64{3, 9},
+			winnings:  []int64{1, 2, 1},
 			wantIndex: 0,
 			wantErr:   true,
 		},
 		{
 			name:      "test bandit should err when len(counts) > len(winnings)",
-			counts:    []int64{3,9,5},
-			winnings:  []int64{1,2},
+			counts:    []int64{3, 9, 5},
+			winnings:  []int64{1, 2},
 			wantIndex: 0,
 			wantErr:   true,
 		},
