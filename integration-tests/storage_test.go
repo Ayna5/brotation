@@ -18,7 +18,7 @@ const (
 	userGroupID = 1
 )
 
-var dsn = "host=localhost port=6432 user=test password=test dbname=brotation sslmode=disable"
+var dsn = "host=db port=5432 user=test password=test dbname=brotation sslmode=disable"
 
 func TestStorage(t *testing.T) {
 	var z logrus.Level

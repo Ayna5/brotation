@@ -1,83 +1,31 @@
-time="2021-05-16T10:24:56+04:00" level=error msg="cannot connect db"
-time="2021-05-16T10:24:56+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-16T10:31:32+04:00" level=error msg="cannot connect db"
-time="2021-05-16T10:31:32+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-16T10:45:10+04:00" level=error msg="cannot connect db"
-time="2021-05-16T10:46:02+04:00" level=error msg="cannot connect db"
-time="2021-05-16T10:46:02+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-16T11:09:50+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:28:34+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:29:25+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:32:40+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:32:51+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:34:32+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T20:37:26+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-17T20:37:48+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-17T20:39:50+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-17T20:49:55+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-17T21:01:04+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-17T21:01:53+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:02:19+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:04:51+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:04:56+04:00" level=info msg="statistics is running..."
-time="2021-05-17T21:05:23+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:05:41+04:00" level=info msg="statistics is running..."
-time="2021-05-17T21:35:21+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:35:26+04:00" level=info msg="statistics is running..."
-time="2021-05-17T21:35:49+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:36:55+04:00" level=info msg="statistics is running..."
-time="2021-05-17T21:46:47+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:46:57+04:00" level=info msg="statistics is running..."
-time="2021-05-17T21:47:50+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:48:56+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:48:56+04:00" span.kind=server system=grpc
-time="2021-05-17T21:48:56+04:00" level=error msg="cannot add banner to slot error"
-time="2021-05-17T21:48:56+04:00" level=error msg="finished unary call with code Unknown" error="cannot add banner 1 to slot 1: cannot add banner to slot: cannot insert to table banner_showing for slot 1, banner 1, group 1: ERROR: null value in column \"date\" of relation \"banner_showing\" violates not-null constraint (SQLSTATE 23502)" grpc.code=Unknown grpc.method=AddBannerToSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:48:56+04:00" grpc.time_ms=219.932 span.kind=server system=grpc
-time="2021-05-17T21:51:13+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-17T21:51:28+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:51:28+04:00" span.kind=server system=grpc
-time="2021-05-17T21:51:28+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:51:28+04:00" span.kind=server system=grpc
-time="2021-05-17T21:51:28+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=AddBannerToSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:51:28+04:00" grpc.time_ms=51.574 span.kind=server system=grpc
-time="2021-05-17T21:51:56+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:51:56+04:00" span.kind=server system=grpc
-time="2021-05-17T21:51:56+04:00" level=error msg="cannot add banner to slot error"
-time="2021-05-17T21:51:56+04:00" level=error msg="finished unary call with code Unknown" error="cannot add banner 1 to slot 1: cannot add banner to slot: cannot insert to table banner_slot for slot 1 and banner 1: ERROR: duplicate key value violates unique constraint \"banner_slot_pkey\" (SQLSTATE 23505)" grpc.code=Unknown grpc.method=AddBannerToSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:51:56+04:00" grpc.time_ms=14.076 span.kind=server system=grpc
-time="2021-05-17T21:54:38+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=RemoveBannerFromSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:54:38+04:00" span.kind=server system=grpc
-time="2021-05-17T21:54:38+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=RemoveBannerFromSlot grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:54:38+04:00" span.kind=server system=grpc
-time="2021-05-17T21:54:38+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=RemoveBannerFromSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:54:38+04:00" grpc.time_ms=16.472 span.kind=server system=grpc
-time="2021-05-17T21:56:11+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddClickForBanner grpc.request.content="banner_id:1 slot_id:1 user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:56:11+04:00" span.kind=server system=grpc
-time="2021-05-17T21:56:11+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=AddClickForBanner grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:56:11+04:00" span.kind=server system=grpc
-time="2021-05-17T21:56:11+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=AddClickForBanner grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:56:11+04:00" grpc.time_ms=22.625 span.kind=server system=grpc
-time="2021-05-17T21:58:02+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.request.content="slot_id:1 user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:02+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:02+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.response.content="banner_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:02+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:02+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetBannerForSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:02+04:00" grpc.time_ms=75.361 span.kind=server system=grpc
-time="2021-05-17T21:58:18+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.request.content="slot_id:1 user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:18+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:18+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.response.content="banner_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:18+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:18+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetBannerForSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:18+04:00" grpc.time_ms=11.96 span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=AddBannerToSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" grpc.time_ms=17.22 span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=RemoveBannerFromSlot grpc.request.content="banner_id:1 slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=RemoveBannerFromSlot grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=RemoveBannerFromSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" grpc.time_ms=8.37 span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddClickForBanner grpc.request.content="banner_id:1 slot_id:1 user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=AddClickForBanner grpc.response.content= grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=AddClickForBanner grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" grpc.time_ms=8.67 span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.request.content="slot_id:1 user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="server response payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.response.content="banner_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" span.kind=server system=grpc
-time="2021-05-17T21:58:54+04:00" level=info msg="finished unary call with code OK" grpc.code=OK grpc.method=GetBannerForSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-17T21:58:54+04:00" grpc.time_ms=12.056 span.kind=server system=grpc
-time="2021-05-18T02:12:46+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:12:47+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:13:03+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:13:04+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:14:26+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:14:26+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-18T02:20:34+04:00" level=info msg="statistics is running..."
-time="2021-05-18T02:20:51+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:20:51+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:21:00+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:21:01+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:21:19+04:00" level=error msg="cannot connect db"
-time="2021-05-18T02:21:19+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:21:54+04:00" level=fatal msg="cannot init producer"
-time="2021-05-18T02:28:55+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-18T02:54:44+04:00" level=info msg="bannersRotation is running..."
-time="2021-05-18T03:02:54+04:00" level=fatal msg="cannot init grpc server"
-time="2021-05-18T03:03:56+04:00" level=fatal msg="cannot init grpc server"
+time="2021-05-18T06:13:24+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:13:24+04:00" level=fatal msg="cannot init grpc server"
+time="2021-05-18T06:14:05+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:14:06+04:00" level=fatal msg="cannot init producer"
+time="2021-05-18T06:14:39+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:14:40+04:00" level=fatal msg="cannot init producer"
+time="2021-05-18T06:14:55+04:00" level=fatal msg="cannot init producer"
+time="2021-05-18T06:20:54+04:00" level=fatal msg="cannot init grpc server"
+time="2021-05-18T06:21:46+04:00" level=info msg="bannersRotation is running..."
+time="2021-05-18T06:23:33+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddBannerToSlot grpc.request.content="banner_id:1  slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=error msg="cannot add banner to slot error"
+time="2021-05-18T06:23:33+04:00" level=error msg="finished unary call with code Unknown" error="cannot add banner 1 to slot 1: cannot add banner to slot: cannot insert to table banner_slot for slot 1 and banner 1: ERROR: relation \"banner_slot\" does not exist (SQLSTATE 42P01)" grpc.code=Unknown grpc.method=AddBannerToSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" grpc.time_ms=23.393 span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=RemoveBannerFromSlot grpc.request.content="banner_id:1  slot_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=error msg="cannot remove banner from slot error"
+time="2021-05-18T06:23:33+04:00" level=error msg="finished unary call with code Unknown" error="cannot remove banner 1 to slot 1: cannot remove banner from slot: cannot remove from table banner_slot for slot 1 and banner 1: ERROR: relation \"banner_slot\" does not exist (SQLSTATE 42P01)" grpc.code=Unknown grpc.method=RemoveBannerFromSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" grpc.time_ms=8.242 span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=AddClickForBanner grpc.request.content="banner_id:1  slot_id:1  user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=error msg="cannot click for banner error"
+time="2021-05-18T06:23:33+04:00" level=error msg="finished unary call with code Unknown" error="cannot add click for banner 1, slot 1, userGroupID 1: cannot add click for banner: can't add view for banner: ERROR: relation \"banner_click\" does not exist (SQLSTATE 42P01)" grpc.code=Unknown grpc.method=AddClickForBanner grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" grpc.time_ms=3.715 span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=info msg="server request payload logged as grpc.request.content field" grpc.method=GetBannerForSlot grpc.request.content="slot_id:1  user_group_id:1" grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" span.kind=server system=grpc
+time="2021-05-18T06:23:33+04:00" level=error msg="cannot get banner for slot error"
+time="2021-05-18T06:23:33+04:00" level=error msg="finished unary call with code Unknown" error="cannot get banner for slot 1, userGroup 1: cannot get banner for slot: cannot get information about slot 1 and userGroup 1:: cannot execute query: ERROR: relation \"banner_showing\" does not exist (SQLSTATE 42P01)" grpc.code=Unknown grpc.method=GetBannerForSlot grpc.service=banners.rotation.BannersRotation grpc.start_time="2021-05-18T06:23:33+04:00" grpc.time_ms=5.84 span.kind=server system=grpc
+time="2021-05-18T06:31:03+04:00" level=info msg="statistics is running..."
+time="2021-05-18T06:31:13+04:00" level=error msg="cannot get events shows: can't get shows info: ERROR: relation \"banner_showing\" does not exist (SQLSTATE 42P01)"
+time="2021-05-18T06:31:37+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:31:37+04:00" level=info msg="bannersRotation is running..."
+time="2021-05-18T06:37:50+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:37:50+04:00" level=fatal msg="cannot init grpc server"
+time="2021-05-18T06:38:01+04:00" level=error msg="cannot connect db"
+time="2021-05-18T06:38:01+04:00" level=fatal msg="cannot init grpc server"
+time="2021-05-18T09:29:43+04:00" level=error msg="cannot connect db"
+time="2021-05-18T09:29:43+04:00" level=fatal msg="cannot init grpc server"

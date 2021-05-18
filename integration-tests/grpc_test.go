@@ -3,6 +3,7 @@ package test
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 
 	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
@@ -11,16 +12,18 @@ import (
 	"google.golang.org/grpc"
 )
 
-const (
-	host = "localhost:14545"
-)
-
 var (
 	ctx    = context.Background()
 	client banners_rotation_pb.BannersRotationClient
 )
 
 func TestServerGRPC(t *testing.T) {
+	host := os.Getenv("INTEGRATION_TEST_SERVICE_HOST")
+	if host == "" {
+		host = "localhost:14545"
+	} else {
+		host += ":14545"
+	}
 	conn, err := grpc.Dial(host, grpc.WithInsecure())
 	if err != nil {
 		fmt.Println(err)
@@ -29,6 +32,9 @@ func TestServerGRPC(t *testing.T) {
 
 	client = banners_rotation_pb.NewBannersRotationClient(conn)
 	t.Run("Add banner to slot", func(t *testing.T) {
+		db := NewDB(dsn)
+		truncate(t, db)
+
 		request := &banners_rotation_pb.AddBannerToSlotRequest{
 			BannerId: 1,
 			SlotId:   1,

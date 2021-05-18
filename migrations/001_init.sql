@@ -1,3 +1,5 @@
+-- +goose Up
+-- +goose StatementBegin
 create table if not exists banner
 (
     id          serial PRIMARY KEY,
@@ -44,3 +46,14 @@ CREATE TABLE IF NOT EXISTS banner_click
 INSERT INTO banner (id, description) VALUES (1, 'banner 1'), (2, 'banner 2'), (3, 'banner 3');
 INSERT INTO slot (id, description) VALUES (1, 'slot 1'), (2, 'slot 2'), (3, 'slot 3');
 INSERT INTO user_group (id, description) VALUES (1, 'Дети'), (2,'Старики');
+-- +goose StatementEnd
+
+-- +goose Down
+-- +goose StatementBegin
+drop table banner_showing;
+drop table banner_click;
+drop table banner_slot;
+drop table banner;
+drop table slot;
+drop table user_group;
+-- +goose StatementEnd
