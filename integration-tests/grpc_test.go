@@ -5,11 +5,10 @@ import (
 	"fmt"
 	"testing"
 
+	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
-
-	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
 )
 
 const (

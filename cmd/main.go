@@ -9,14 +9,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/sirupsen/logrus"
-
 	"github.com/Ayna5/bannersRotation/configs"
 	"github.com/Ayna5/bannersRotation/internal/app"
 	"github.com/Ayna5/bannersRotation/internal/kafka"
 	"github.com/Ayna5/bannersRotation/internal/logger"
 	"github.com/Ayna5/bannersRotation/internal/server/grpc"
 	"github.com/Ayna5/bannersRotation/internal/storage/sql"
+	"github.com/sirupsen/logrus"
 )
 
 var configFile string

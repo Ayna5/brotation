@@ -6,13 +6,13 @@ import (
 	"github.com/Shopify/sarama"
 )
 
-// KafkaProducer is a wrapper for sarama sync producer
+// KafkaProducer is a wrapper for sarama sync producer.
 type KafkaProducer struct {
 	topic    string
 	producer sarama.SyncProducer
 }
 
-// New creates new producer
+// New creates new producer.
 func New(broker string, topic string) (*KafkaProducer, error) {
 	if broker == "" {
 		return nil, errors.New("empty broker") //nolint:errcheck
@@ -34,7 +34,7 @@ func New(broker string, topic string) (*KafkaProducer, error) {
 	}, nil
 }
 
-// Send sends arbitrary message
+// Send sends arbitrary message.
 func (kp *KafkaProducer) Send(msg []byte) error {
 	kafkaMsg := &sarama.ProducerMessage{
 		Topic: kp.topic,
@@ -49,7 +49,7 @@ func (kp *KafkaProducer) Send(msg []byte) error {
 	return nil
 }
 
-// Close tries to close the producer
+// Close tries to close the producer.
 func (kp *KafkaProducer) Close() error {
 	return kp.producer.Close()
 }

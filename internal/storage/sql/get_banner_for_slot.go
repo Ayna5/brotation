@@ -3,8 +3,8 @@ package sql
 import (
 	"context"
 	"fmt"
-	"github.com/Ayna5/bannersRotation/internal/algorithm"
 
+	"github.com/Ayna5/bannersRotation/internal/algorithm"
 	"github.com/pkg/errors"
 )
 

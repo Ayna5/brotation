@@ -5,14 +5,13 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/Ayna5/bannersRotation/internal/app"
+	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
-
-	"github.com/Ayna5/bannersRotation/internal/app"
-	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
 )
 
 type Server struct {

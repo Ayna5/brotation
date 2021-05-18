@@ -5,6 +5,7 @@ go 1.15
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/Shopify/sarama v1.29.0
+	github.com/daixiang0/gci v0.2.8 // indirect
 	github.com/gojuno/minimock/v3 v3.0.8
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/jackc/pgx/v4 v4.11.0

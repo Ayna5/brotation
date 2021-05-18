@@ -6,11 +6,10 @@ import (
 	"log"
 	"testing"
 
-	"github.com/sirupsen/logrus"
-	"github.com/stretchr/testify/require"
-
 	"github.com/Ayna5/bannersRotation/internal/logger"
 	"github.com/Ayna5/bannersRotation/internal/storage/sql"
+	"github.com/sirupsen/logrus"
+	"github.com/stretchr/testify/require"
 )
 
 const (
