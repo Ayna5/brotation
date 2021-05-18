@@ -15,17 +15,17 @@ type KafkaProducer struct {
 // New creates new producer.
 func New(broker string, topic string) (*KafkaProducer, error) {
 	if broker == "" {
-		return nil, errors.New("empty broker") //nolint:errcheck
+		return nil, errors.New("empty broker") //nolint:errcheck,govet
 	}
 	if topic == "" {
-		return nil, errors.New("empty topic") //nolint:errcheck
+		return nil, errors.New("empty topic") //nolint:errcheck,govet
 	}
 
 	config := sarama.NewConfig()
 	config.Producer.Return.Successes = true
 	producer, err := sarama.NewSyncProducer([]string{broker}, config)
 	if err != nil {
-		return nil, errors.New("could not create kafka producer") //nolint:errcheck
+		return nil, errors.New("could not create kafka producer") //nolint:errcheck,govet
 	}
 
 	return &KafkaProducer{
@@ -43,7 +43,7 @@ func (kp *KafkaProducer) Send(msg []byte) error {
 
 	_, _, err := kp.producer.SendMessage(kafkaMsg)
 	if err != nil {
-		errors.New("could not send message") //nolint:errcheck
+		errors.New("could not send message") //nolint:errcheck,govet
 	}
 
 	return nil

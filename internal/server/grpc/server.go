@@ -56,7 +56,7 @@ func (s *Server) Start() error {
 
 func (s *Server) Stop() error {
 	if s.server == nil {
-		return errors.New("grpc server is nil") //nolint:errcheck
+		return errors.New("grpc server is nil") //nolint:errcheck,govet
 	}
 
 	s.server.GracefulStop()

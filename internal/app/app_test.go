@@ -37,10 +37,11 @@ func TestApp_AddBannerToSlot(t *testing.T) {
 			name:     "test should error",
 			bannerID: 1,
 			slotID:   0,
-			err:      errors.New("cannot add banner to slot"), //nolint:errcheck
+			err:      errors.New("cannot add banner to slot"), //nolint:errcheck,govet
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			storageMock := newStorageMock(t)
 			storageMock.AddBannerToSlotMock.Set(func(ctx context.Context, bannerID uint64, slotID uint64) error {
@@ -78,10 +79,11 @@ func TestApp_AddClickForBanner(t *testing.T) {
 			bannerID:    1,
 			slotID:      0,
 			userGroupID: 1,
-			err:         errors.New("cannot click for banner"), //nolint:errcheck
+			err:         errors.New("cannot click for banner"), //nolint:errcheck,govet
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			storageMock := newStorageMock(t)
 			storageMock.AddClickForBannerMock.Set(func(ctx context.Context, bannerID uint64, slotID uint64, userGroupID uint64) (err error) {
@@ -119,10 +121,11 @@ func TestApp_GetBannerForSlot(t *testing.T) {
 			slotID:      0,
 			userGroupID: 1,
 			result:      0,
-			err:         errors.New("cannot get banner for slot"), //nolint:errcheck
+			err:         errors.New("cannot get banner for slot"), //nolint:errcheck,govet
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			storageMock := newStorageMock(t)
 			storageMock.GetBannerForSlotMock.Set(func(ctx context.Context, slotID uint64, userGroupID uint64) (u1 uint64, err error) {
@@ -158,10 +161,11 @@ func TestApp_RemoveBannerFromSlot(t *testing.T) {
 			name:     "test should error",
 			bannerID: 1,
 			slotID:   0,
-			err:      errors.New("cannot remove banner from slot"), //nolint:errcheck
+			err:      errors.New("cannot remove banner from slot"), //nolint:errcheck,govet
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			storageMock := newStorageMock(t)
 			storageMock.RemoveBannerFromSlotMock.Set(func(ctx context.Context, bannerID uint64, slotID uint64) (err error) {
@@ -190,6 +194,7 @@ func TestNew(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			var log *logrus.Logger
 			storageMock := newStorageMock(t)
