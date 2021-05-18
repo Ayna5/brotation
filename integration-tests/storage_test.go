@@ -23,8 +23,7 @@ var dsn = "host=localhost port=6432 user=test password=test dbname=brotation ssl
 func TestStorage(t *testing.T) {
 	var z logrus.Level
 	flag.Parse()
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
+	ctx := context.Background()
 
 	logg, err := logger.New(z, "./logrus.log")
 	if err != nil {

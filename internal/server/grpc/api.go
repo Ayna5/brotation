@@ -7,7 +7,7 @@ import (
 	banners_rotation_pb "github.com/Ayna5/bannersRotation/pkg/banners-rotation"
 )
 
-func (a *Server) AddBannerToSlot(ctx context.Context, req *banners_rotation_pb.AddBannerToSlotRequest) (*banners_rotation_pb.AddBannerToSlotResponse, error) {
+func (a *Server) AddBannerToSlot(ctx context.Context, req *banners_rotation_pb.AddBannerToSlotRequest) (*banners_rotation_pb.AddBannerToSlotResponse, error) { //nolint:stylecheck
 	if err := a.api.AddBannerToSlot(ctx, req.GetBannerId(), req.GetSlotId()); err != nil {
 		return nil, fmt.Errorf("cannot add banner %v to slot %v: %w", req.GetBannerId(), req.GetSlotId(), err)
 	}

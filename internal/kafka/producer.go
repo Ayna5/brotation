@@ -6,14 +6,14 @@ import (
 	"github.com/Shopify/sarama"
 )
 
-// KafkaProducer is a wrapper for sarama sync producer.
-type KafkaProducer struct {
+// Producer is a wrapper for sarama sync producer.
+type Producer struct {
 	topic    string
 	producer sarama.SyncProducer
 }
 
 // New creates new producer.
-func New(broker string, topic string) (*KafkaProducer, error) {
+func New(broker string, topic string) (*Producer, error) {
 	if broker == "" {
 		return nil, errors.New("empty broker") //nolint:errcheck,govet
 	}
@@ -28,14 +28,14 @@ func New(broker string, topic string) (*KafkaProducer, error) {
 		return nil, errors.New("could not create kafka producer") //nolint:errcheck,govet
 	}
 
-	return &KafkaProducer{
+	return &Producer{
 		topic:    topic,
 		producer: producer,
 	}, nil
 }
 
 // Send sends arbitrary message.
-func (kp *KafkaProducer) Send(msg []byte) error {
+func (kp *Producer) Send(msg []byte) error {
 	kafkaMsg := &sarama.ProducerMessage{
 		Topic: kp.topic,
 		Value: sarama.ByteEncoder(msg),
@@ -43,13 +43,13 @@ func (kp *KafkaProducer) Send(msg []byte) error {
 
 	_, _, err := kp.producer.SendMessage(kafkaMsg)
 	if err != nil {
-		errors.New("could not send message") //nolint:errcheck,govet
+		return errors.New("could not send message") //nolint:errcheck,govet
 	}
 
 	return nil
 }
 
 // Close tries to close the producer.
-func (kp *KafkaProducer) Close() error {
+func (kp *Producer) Close() error {
 	return kp.producer.Close()
 }

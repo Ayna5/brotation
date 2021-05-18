@@ -8,25 +8,18 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	tests := []struct {
-		name    string
-		level   logrus.Level
-		path    string
-		wantErr bool
+	tests := struct {
+		name  string
+		level logrus.Level
+		path  string
 	}{
-		{
-			name:    "test for logger should ok",
-			level:   logrus.InfoLevel,
-			path:    "./logrus.log",
-			wantErr: false,
-		},
+		name:  "test for logger should ok",
+		level: logrus.InfoLevel,
+		path:  "./logrus.log",
 	}
-	for _, tt := range tests {
-		tt := tt
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := New(tt.level, tt.path)
-			require.NotNil(t, got)
-			require.NoError(t, err)
-		})
-	}
+	t.Run(tests.name, func(t *testing.T) {
+		got, err := New(tests.level, tests.path)
+		require.NotNil(t, got)
+		require.NoError(t, err)
+	})
 }

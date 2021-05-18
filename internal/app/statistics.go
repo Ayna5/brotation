@@ -25,7 +25,7 @@ type producer interface {
 	Close() error
 }
 
-// NewStatistic creates new statistic
+// NewStatistic creates new statistic.
 func NewStatistic(log *logrus.Logger, producer producer, storage Storage, time time.Duration) *Statistic {
 	return &Statistic{
 		log:      log,

@@ -5,9 +5,8 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/pkg/errors"
-
 	"github.com/Ayna5/bannersRotation/internal/storage"
+	"github.com/pkg/errors"
 )
 
 func (s *Storage) bannerInfo(ctx context.Context, slotID, userGroupID uint64) ([]storage.BannerInfo, error) {
