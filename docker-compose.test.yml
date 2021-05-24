@@ -1,0 +1,94 @@
+version: "3"
+
+networks:
+  db:
+    driver: bridge
+  zookeeper:
+    driver: bridge
+  kafka:
+    driver: bridge
+  app:
+    driver: bridge
+
+services:
+  integration_tests:
+    build:
+      context: .
+      dockerfile: integration-tests/Dockerfile
+    restart: on-failure
+    environment:
+      INTEGRATION_TEST_SERVICE_HOST: "bannersrotation"
+    expose:
+      - 5432
+      - 2181
+      - 9092
+      - 14545
+    links:
+      - bannersrotation
+    networks:
+      - db
+      - zookeeper
+      - kafka
+      - app
+
+  bannersrotation:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    depends_on:
+      - zookeeper
+      - kafka
+      - db
+    ports:
+      - "14545:14545"
+    expose:
+      - 14545
+    environment:
+      REG_SERVICE_DB_DSN: "postgres://test:test@db:5432/brotation?sslmode=disable"
+      REG_SERVICE_BROKER: ":9092"
+      REG_SERVICE_TOPIC: "banners_rotation_statistic"
+    restart: on-failure
+    networks:
+      - db
+      - zookeeper
+      - kafka
+      - app
+
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: brotation
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    volumes:
+      # https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh#L145
+      - ./migrations/20210509161527_init.sql:/docker-entrypoint-initdb.d/20210509161527_init.sql
+    networks:
+      - db
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - zookeeper
+      - app
+
+  kafka:
+    image: wurstmeister/kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092
+      KAFKA_CREATE_TOPICS: banners_rotation_statistic:1:1 # topic banners_rotation_statistic will have 1 partition and 1 replica
+    networks:
+      - zookeeper
+      - kafka
+      - app
